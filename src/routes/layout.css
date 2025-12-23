@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Konkhmer+Sleokchher&display=swap');
+@import 'tailwindcss';
+@import '@skeletonlabs/skeleton'; 
+@import '@skeletonlabs/skeleton-svelte'; 
+@import '@skeletonlabs/skeleton/themes/cerberus';
+
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    background-color: white;
+}
+
+/* --- METAL HEADER THEME --- */
+.metal-bar {
+    background: linear-gradient(to bottom, #f0f0f0 0%, #cfcfcf 100%);
+    border-bottom: 1px solid #9a9a9a;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.window-title {
+    font-family: 'Konkhmer Sleokchher', serif;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+    color: #767676; /* Updated Color */
+}
+
+/* --- UPDATED BUTTON PHYSICS --- */
+.win-btn {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3), inset 0 1px 1px rgba(255,255,255,0.6);
+    background-size: cover;
+    /* Smooth springy physics */
+    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+}
+
+/* HOVER: Raise up + Brighten + Deepen Color */
+.win-btn:hover {
+    transform: translateY(-0.5px);
+    /* Saturate(2) doubles the color intensity (opacity feel) */
+    filter: brightness(1.1) saturate(2); 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3), inset 0 1px 1px rgba(255,255,255,0.7);
+}
+
+/* ACTIVE: Snap down + Dim */
+.win-btn:active {
+    transform: translateY(1px) scale(0.98); /* Slight shrink for realism */
+    box-shadow: 0 0 1px rgba(0,0,0,0.2), inset 0 1px 1px rgba(255,255,255,0.4);
+    filter: brightness(0.9);
+    transition: all 0.05s ease-out; /* Instant snap */
+}
+
+/* COLOR DEFINITIONS (Unchanged base gradients) */
+.win-btn-red {
+    background-image: 
+        linear-gradient(rgba(226, 47, 47, 0.25), rgba(226, 47, 47, 0.25)),
+        linear-gradient(to bottom, #F3EFEF 0%, #B5B5B5 70%, #DDDDDD 100%);
+    border: 1px solid #c95c5c;
+}
+
+.win-btn-yellow {
+    background-image: 
+        linear-gradient(rgba(226, 184, 47, 0.25), rgba(226, 184, 47, 0.25)),
+        linear-gradient(to bottom, #F3EFEF 0%, #B5B5B5 70%, #DDDDDD 100%);
+    border: 1px solid #cfa346;
+}
+
+.win-btn-green {
+    background-image: 
+        linear-gradient(rgba(62, 226, 47, 0.25), rgba(62, 226, 47, 0.25)),
+        linear-gradient(to bottom, #F3EFEF 0%, #B5B5B5 70%, #DDDDDD 100%);
+    border: 1px solid #5aa852;
+}
+
+
+/* --- ICON MASKING (Fix) --- */
+/* This forces the div to take the shape of the icon and fill it with background-color */
+.icon-gray {
+    filter: brightness(0) saturate(100%) invert(51%) sepia(6%) saturate(15%) hue-rotate(355deg) brightness(92%) contrast(88%);
+    transition: all 0.2s ease;
+}
+
+/* On hover: Make it black (or original color if you remove brightness(0)) */
+.icon-gray:hover {
+    filter: brightness(0); /* Turns it purely black */
+    cursor: pointer;
+}
+
+
+/* --- TAB STYLING --- */
+.tab-trigger {
+    /* Made transition slightly slower (0.3s) and smoother with ease-out */
+    transition: color 0.3s ease-out;
+    color: #999; /* Lighter inactive state */
+    background: transparent !important; 
+    padding-bottom: 0px !important;
+    margin-bottom: -2px; 
+}
+
+/* New Hover State: Smoothly darkens before clicking */
+.tab-trigger:hover {
+    color: #3b3b3b; /* Mid-grey on hover */
+}
+
+/* Active State: Now Pure Black (#000) for darker text */
+.tab-trigger[data-state="active"] {
+    color: #3b3b3b; 
+}
+
+.tab-indicator {
+    background-color: #666;
+    height: 4px; 
+    border-radius: 4px 4px 0 0;
+    margin-top: 2px; 
+}
