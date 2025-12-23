@@ -102,8 +102,10 @@ html, body {
 }
 
 /* Active State: Now Pure Black (#000) for darker text */
-.tab-trigger[data-state="active"] {
-    color: #3b3b3b; 
+.tab-trigger[data-state="active"],
+.tab-trigger[data-selected],
+.tab-trigger[aria-selected="true"] {
+    color: #3b3b3b !important; /* Pure Black */
 }
 
 .tab-indicator {
