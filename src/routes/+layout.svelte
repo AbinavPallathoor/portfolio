@@ -112,7 +112,15 @@
         </div>
     </div>
 
-    <main class="flex-1 overflow-y-auto p-8 bg-white">
+    <main class="flex-1 grid w-full relative overflow-hidden bg-white pt-4">
         {@render children()}
     </main>
 </div>
+
+<style>
+    main > :global(*) {
+        grid-area: 1 / 1;
+        width: 100%;
+        height: 100%;
+    }
+</style>
